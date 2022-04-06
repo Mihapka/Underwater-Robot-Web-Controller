@@ -36,11 +36,9 @@ public class SensorListenerService {
     public void init() {
 
         subscriber = new Subscriber(Topics.SENSORS_TOPIC, "tcp://localhost:6001", zContext);
-        logger.info("Started listening topic '{}', on address: {}", "tcp://localhost:6001");
+        logger.info("Started listening topic '{}', on address: {}", Topics.SENSORS_TOPIC, "tcp://localhost:6001");
         subscriber.setOnReceive(this::processMsg);
         executor.submit(subscriber);
-
-
     }
 
     private void processMsg(String msg) {
@@ -63,6 +61,6 @@ public class SensorListenerService {
     }
 
     public void streamSensors(SensorDTO sensorDTO) {
-        this.template.convertAndSend("/topic/showSensor",sensorDTO);
+        this.template.convertAndSend("/topic/showSensor", sensorDTO);
     }
 }

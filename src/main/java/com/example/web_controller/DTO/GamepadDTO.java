@@ -4,10 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GamapadDTO {
+public class GamepadDTO {
 
+    private float leftStickX;
+    private float leftStickY;
+    private float rightStickX;
+    private float rightStickY;
 
 }
