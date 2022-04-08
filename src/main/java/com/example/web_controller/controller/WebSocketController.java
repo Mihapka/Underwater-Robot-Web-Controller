@@ -15,8 +15,9 @@ public class WebSocketController {
 
     private GamepadListenerService gamepadListenerService;
 
-    @MessageMapping("/sendAxes")
+    @MessageMapping("/axes")
     public void getGamepad(@Payload GamepadDTO gamepadDTO){
+
         gamepadListenerService.processMsg(gamepadDTO);
     }
 }

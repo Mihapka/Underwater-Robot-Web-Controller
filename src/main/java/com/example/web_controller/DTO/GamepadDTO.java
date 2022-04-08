@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GamepadDTO {
-
+// TODO change float to double
     private float leftStickX;
     private float leftStickY;
     private float rightStickX;

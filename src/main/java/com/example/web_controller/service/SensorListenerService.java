@@ -54,13 +54,13 @@ public class SensorListenerService {
                     sensorsValuesMsg.getCpuTemp());
 
             streamSensors(sensorDTO);
-
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
     }
 
     public void streamSensors(SensorDTO sensorDTO) {
-        this.template.convertAndSend("/topic/showSensor", sensorDTO);
+
+        this.template.convertAndSend("/topic/sensors", sensorDTO);
     }
 }

@@ -28,7 +28,7 @@
         stompClient.connect({}, function (frame) {
             setConnected(true);
             console.log('Connected: ' + frame);
-            stompClient.subscribe('/topic/showSensor', function (message) {
+            stompClient.subscribe('/topic/sensors', function (message) {
                 showSensor(JSON.parse(message.body));
             });
         });
@@ -50,14 +50,6 @@
         $( "#requestSensor" ).click(function() { requestSensor(); });
     });
 
-    function sendName() {
-        stompClient.send("/app/hello", {}, "привет");
-    }
-
-    function sendName() {
-        stompClient.send("/app/hello", {}, JSON.stringify({'name': "qqq"}));
-    };
-
     function sendGamepad(rightAxe) {
 //      если задействован хотя бы один стик
 //      собираем оъбект парсим в json и отправляем
@@ -71,7 +63,7 @@
         };
             let json = JSON.stringify(gamepadObject);
             console.log(json);
-            stompClient.send("/app/sendAxes", {}, json);
+            stompClient.send("/app/axes", {}, json);
         }
     }
 
